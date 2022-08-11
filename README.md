@@ -10,6 +10,7 @@ Si desea instalar este paquete ejecute el siguiente comando:
 
 ```bash
 $ composer require realsoftgt/infile-fel
+
 ```
 
 Luego de haberse instalado, debe ejecutar las siguientes instrucciones para poder configurar de una mejor manera el paquete:
@@ -18,6 +19,8 @@ Luego de haberse instalado, debe ejecutar las siguientes instrucciones para pode
 
 ```bash
 # aca va el comando para publicarlos
+php artisan vendor:publish --provider="RealSoft\InfileFEL\InfileFELServiceProvider"
+
 ```
 
 2. Dicho paquete requiere que en su archivo `.env` tenga las siguientes varibles de configuración:
@@ -33,6 +36,7 @@ FEL_KEY_WS='B49CE9C8552894655D768E1082EDB718GR34GTTTT423432'
 FEL_PREFIX_UNIQUE_IDENTIFIER='MI-TIENDA-GUATE'
 # y muchas variables más...
 # ...
+
 ```
 
 3. Otros pasos faltantes...
