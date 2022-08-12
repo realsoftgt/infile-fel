@@ -59,4 +59,4 @@ Este paquete ha sido desarrollado para uso en proyectos personales, asi como com
 
 ## Licencia
 
-Este proyecto esta basado en la licencia MIT.
+Infile FEL es un software de código abierto con licencia [MIT](https://opensource.org/licenses/MIT)
