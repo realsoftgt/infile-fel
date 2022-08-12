@@ -5,6 +5,13 @@
  */
 return [
 
+    'active' => true,
+
+    'certifier' => [
+        'name' => 'Infile S. A.',
+        'nit' => '12521337',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Ruta para la firma Infile FEL
@@ -71,7 +78,18 @@ return [
     | asignada por Infile.
     |
     */
-    'fel_key_ws' => env('FEL_KEY_WS', 'B49CE9C8552894655D768E1082EDB718GR34GTTTT423432'),
+    'fel_key_ws' => env('FEL_KEY_WS', 'B49CE9C852EDB718GR34GTTTT4234324'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Token de acceso para firmar
+    |--------------------------------------------------------------------------
+    |
+    | Token de acceso para firmar, es una cadena de 32 caracteres que le fue
+    | asignada por Infile.
+    |
+    */
+    'fel_token_signer' => env('FEL_TOKEN_SIGNER', '9c491751f2a5623b4267a9c493b1c757'),
 
     /*
     |--------------------------------------------------------------------------
@@ -88,13 +106,43 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | 
+    | Tipos de documentos DTE
     |--------------------------------------------------------------------------
     |
-    | If the application is to be hosted in the Laravel Vapor hosting platform,
-    | a special header needs to be attached to each download response.
+    | Listado de documentos validos para firmar/certificar,
+    | por medio del proceso FEL de la SAT.
     |
     */
-    'useVaporHeaders'  => env('FEL_VAPOR_HEADERS', false),
+    'fel_document_types'  => [
+        'FACT' => 'FACTURA ELECTRONICA',
+        'FCAM' => 'FACTURA ELECTRONICA CAMBIARIA ',
+        'FESP' => 'FACTURA ELECTRONICA ESPECIAL',
+        'NCRE' => 'NOTA DE CREDITO',
+        'NDEB' => 'NOTA DE DEBITO',
+        'NABN' => 'NOTA DE ABONO',
+        'RECI' => 'RECIBO',
+        'RDON' => 'RECIBO DE DONACION',
+        'FPEQ' => 'FACTURA DE PEQUEÑO CONTRIBUYENTE',
+    ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Modelo de factura electronica cambiaria y normal
+    |--------------------------------------------------------------------------
+    |
+    | Listado de documentos validos para firmar/certificar,
+    | por medio del proceso FEL de la SAT.
+    |
+    */
+    'fel_asign_model' => [
+        'FCAM' => 'App\Sales\ExchangeInvoice',
+        'FESP' => 'App\Sales\SpecialInvoice',
+        'FACT' => 'App\Sales\Invoice',
+        'NCRE' => 'App\Sales\CreditNote',
+        'NDEB' => 'App\Sales\DebitNote',
+        'NABN' => 'App\Sales\SubscriptionNote',
+        'RECI' => 'App\Sales\Receipt',
+        'RDON' => 'App\Sales\DonationReceipt',
+        'FPEQ' => 'App\Sales\LowIncomeInvoice',
+    ],
 ];
